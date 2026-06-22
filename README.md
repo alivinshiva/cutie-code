@@ -2,7 +2,7 @@
 
 A beautiful **Catppuccin Mocha** VS Code setup with **transparency**, **blur**, and a ghosty terminal aesthetic.
 
-![Theme Preview](https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/mocha.png)
+![Cutie Code Preview](https://raw.githubusercontent.com/alivinshiva/cutie-code/master/image.png)
 
 ## Features ✨
 
