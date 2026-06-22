@@ -124,6 +124,7 @@
     "window.systemColorTheme": "dark",
     "window.autoDetectColorScheme": false,
     "window.titleBarStyle": "custom",
+    "settingsSync.ignoredSettings": ["workbench.colorCustomizations"],
     "settingsSync.ignoredExtensions": [],
     "chat.instructionsFilesLocations": {
         ".github/instructions": true,
