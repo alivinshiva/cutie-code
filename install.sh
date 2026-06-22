@@ -45,33 +45,50 @@ if ! command -v code &>/dev/null; then
   fi
 fi
 
-# ── Install VS Code extensions ───────────────────────────────────────────────
+# ── Install all VS Code extensions from list ────────────────────────────────
 if command -v code &>/dev/null; then
   echo "==> Installing VS Code extensions..."
-  code --install-extension catppuccin.catppuccin-vsc --force
-  code --install-extension esbenp.prettier-vscode --force
-  echo "   Note: iconTheme is 'Monokai Pro Icons' (paid) — install from marketplace if desired"
+  if [[ -f "$DOTFILES_DIR/extensions.txt" ]]; then
+    while IFS= read -r ext; do
+      [[ -z "$ext" || "$ext" == \#* ]] && continue
+      code --install-extension "$ext" --force
+    done < "$DOTFILES_DIR/extensions.txt"
+  fi
+  echo "   Done."
 else
   echo "   ⚠️  VS Code CLI not found. Install VS Code first, then re-run."
 fi
 
-# ── Backup existing settings ─────────────────────────────────────────────────
+# ── Backup existing configs ────────────────────────────────────────────────
 VSCODE_SETTINGS_DIR="$HOME/Library/Application Support/Code/User"
 if [[ "$OS" != "mac" ]]; then
   VSCODE_SETTINGS_DIR="$HOME/.config/Code/User"
 fi
 
+TIMESTAMP=$(date +%Y%m%d%H%M%S)
+
 if [[ -f "$VSCODE_SETTINGS_DIR/settings.json" ]]; then
-  BACKUP="$VSCODE_SETTINGS_DIR/settings.json.backup.$(date +%Y%m%d%H%M%S)"
+  BACKUP="$VSCODE_SETTINGS_DIR/settings.json.backup.$TIMESTAMP"
   echo "==> Backing up existing settings to $BACKUP"
   cp "$VSCODE_SETTINGS_DIR/settings.json" "$BACKUP"
 fi
 
-# ── Write settings ───────────────────────────────────────────────────────────
+if [[ -f "$VSCODE_SETTINGS_DIR/keybindings.json" ]]; then
+  BACKUP_KEYS="$VSCODE_SETTINGS_DIR/keybindings.json.backup.$TIMESTAMP"
+  echo "==> Backing up existing keybindings to $BACKUP_KEYS"
+  cp "$VSCODE_SETTINGS_DIR/keybindings.json" "$BACKUP_KEYS"
+fi
+
+# ── Write settings & keybindings ────────────────────────────────────────────
 echo "==> Writing VS Code settings..."
 mkdir -p "$VSCODE_SETTINGS_DIR"
 cp "$DOTFILES_DIR/settings.json" "$VSCODE_SETTINGS_DIR/settings.json"
 
+if [[ -f "$DOTFILES_DIR/keybindings.json" ]]; then
+  cp "$DOTFILES_DIR/keybindings.json" "$VSCODE_SETTINGS_DIR/keybindings.json"
+  echo "==> Keybindings restored."
+fi
+
 echo ""
 echo "✅ Cutie Code installed! Restart VS Code to see the changes."
-echo "   Old settings backed up as settings.json.backup.*"
+echo "   Old configs backed up as *.backup.$TIMESTAMP"
