@@ -124,9 +124,7 @@
     "window.systemColorTheme": "dark",
     "window.autoDetectColorScheme": false,
     "window.titleBarStyle": "custom",
-    "settingsSync.ignoredExtensions": [
-        "illixion.vscode-vibrancy-continued"
-    ],
+    "settingsSync.ignoredExtensions": [],
     "chat.instructionsFilesLocations": {
         ".github/instructions": true,
         ".claude/rules": true,

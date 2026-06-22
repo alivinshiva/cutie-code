@@ -18,7 +18,6 @@ github.codespaces
 github.github-vscode-theme
 github.vscode-github-actions
 hiteshchoudharycode.chai-theme
-illixion.vscode-vibrancy-continued
 kumar-harsh.graphql-for-vscode
 magson.dark-hacker-theme
 maosantaella.night-wolf
