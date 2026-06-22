@@ -2,7 +2,10 @@
 
 A beautiful **Catppuccin Mocha** VS Code setup with **transparency**, **blur**, and a ghosty terminal aesthetic.
 
-![Cutie Code Preview](https://raw.githubusercontent.com/alivinshiva/cutie-code/master/image.png)
+| Preview | |
+|---|---|
+| ![Editor](https://raw.githubusercontent.com/alivinshiva/cutie-code/master/editor.png) | ![Terminal](https://raw.githubusercontent.com/alivinshiva/cutie-code/master/terminal.png) |
+| ![Explorer](https://raw.githubusercontent.com/alivinshiva/cutie-code/master/explorer.png) | |
 
 ## Features ✨
 
