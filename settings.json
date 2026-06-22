@@ -127,7 +127,6 @@
     "settingsSync.ignoredExtensions": [
         "illixion.vscode-vibrancy-continued"
     ],
-    "vscode_vibrancy.backgroundOverride": "40",
     "chat.instructionsFilesLocations": {
         ".github/instructions": true,
         ".claude/rules": true,
